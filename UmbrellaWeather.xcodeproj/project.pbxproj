@@ -17,6 +17,10 @@
 		320A8F2D1C7730950024F518 /* CityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F2A1C7730950024F518 /* CityListCell.xib */; };
 		320A8F2E1C7730950024F518 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F2B1C7730950024F518 /* FirstView.xib */; };
 		320A8F2F1C7730950024F518 /* WeekWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F2C1C7730950024F518 /* WeekWeatherCell.xib */; };
+		320A8F341C7732960024F518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F301C7732960024F518 /* Assets.xcassets */; };
+		320A8F351C7732960024F518 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F311C7732960024F518 /* DINNextLTPro-Light.otf */; };
+		320A8F371C7732960024F518 /* WaterSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F331C7732960024F518 /* WaterSound.wav */; };
+		320A8F391C77330D0024F518 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F381C77330D0024F518 /* Info.plist */; };
 		3215992B1C3E35CC00F68FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215992A1C3E35CC00F68FA4 /* AppDelegate.swift */; };
 		3215994C1C3E371300F68FA4 /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215994B1C3E371300F68FA4 /* ServiceResult.swift */; };
 		3215994E1C3E371900F68FA4 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215994D1C3E371900F68FA4 /* WeatherResult.swift */; };
@@ -29,10 +33,7 @@
 		321599621C3E379900F68FA4 /* Citys.xml in Resources */ = {isa = PBXBuildFile; fileRef = 321599611C3E379900F68FA4 /* Citys.xml */; };
 		321599681C3E3B8E00F68FA4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321599671C3E3B8E00F68FA4 /* DataModel.swift */; };
 		3215996E1C3E3C1300F68FA4 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */; };
-		321599701C3E3CA500F68FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3215996F1C3E3CA500F68FA4 /* Assets.xcassets */; };
-		326730E71C5A649F00340338 /* WaterSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 326730E61C5A649E00340338 /* WaterSound.wav */; };
 		32B94B481C55E0DD006EE4BB /* UIImageView+WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */; };
-		32D152F41C48B0EE000A4959 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32D152F31C48ACEB000A4959 /* DINNextLTPro-Light.otf */; };
 		32D1539D1C50FB05000A4959 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1539C1C50FB05000A4959 /* HomeViewController.swift */; };
 		32F211B81C5358DE00B80498 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211B71C5358DE00B80498 /* CityListViewController.swift */; };
 		32F211BC1C5361E600B80498 /* SupportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211BB1C5361E600B80498 /* SupportTableViewController.swift */; };
@@ -52,9 +53,12 @@
 		320A8F2A1C7730950024F518 /* CityListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListCell.xib; sourceTree = "<group>"; };
 		320A8F2B1C7730950024F518 /* FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
 		320A8F2C1C7730950024F518 /* WeekWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekWeatherCell.xib; sourceTree = "<group>"; };
+		320A8F301C7732960024F518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		320A8F311C7732960024F518 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
+		320A8F331C7732960024F518 /* WaterSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = WaterSound.wav; sourceTree = "<group>"; };
+		320A8F381C77330D0024F518 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321599271C3E35CC00F68FA4 /* UmbrellaWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmbrellaWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3215992A1C3E35CC00F68FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		321599361C3E35CC00F68FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		3215994B1C3E371300F68FA4 /* ServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ServiceResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3215994D1C3E371900F68FA4 /* WeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherResult.swift; path = ../Server/WeatherResult.swift; sourceTree = "<group>"; };
 		3215994F1C3E371E00F68FA4 /* DailyResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyResult.swift; path = ../Server/DailyResult.swift; sourceTree = "<group>"; };
@@ -66,10 +70,7 @@
 		321599611C3E379900F68FA4 /* Citys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Citys.xml; sourceTree = "<group>"; };
 		321599671C3E3B8E00F68FA4 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
-		3215996F1C3E3CA500F68FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		326730E61C5A649E00340338 /* WaterSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = WaterSound.wav; path = ../WaterSound.wav; sourceTree = "<group>"; };
 		32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WeatherImage.swift"; sourceTree = "<group>"; };
-		32D152F31C48ACEB000A4959 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DINNextLTPro-Light.otf"; path = "../DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
 		32D1539C1C50FB05000A4959 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		32F211B71C5358DE00B80498 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		32F211BB1C5361E600B80498 /* SupportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 				321599401C3E368C00F68FA4 /* DataModel */,
 				3221724D1C5B89D4008EBA1D /* Interface */,
 				3221724C1C5B8960008EBA1D /* Sources */,
+				320A8F381C77330D0024F518 /* Info.plist */,
 			);
 			path = UmbrellaWeather;
 			sourceTree = "<group>";
@@ -177,10 +179,9 @@
 		3221724C1C5B8960008EBA1D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32D152F31C48ACEB000A4959 /* DINNextLTPro-Light.otf */,
-				326730E61C5A649E00340338 /* WaterSound.wav */,
-				3215996F1C3E3CA500F68FA4 /* Assets.xcassets */,
-				321599361C3E35CC00F68FA4 /* Info.plist */,
+				320A8F301C7732960024F518 /* Assets.xcassets */,
+				320A8F311C7732960024F518 /* DINNextLTPro-Light.otf */,
+				320A8F331C7732960024F518 /* WaterSound.wav */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -286,13 +287,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				320A8F2D1C7730950024F518 /* CityListCell.xib in Resources */,
-				32D152F41C48B0EE000A4959 /* DINNextLTPro-Light.otf in Resources */,
+				320A8F371C7732960024F518 /* WaterSound.wav in Resources */,
 				320A8F191C74EC600024F518 /* Main.storyboard in Resources */,
 				321599621C3E379900F68FA4 /* Citys.xml in Resources */,
-				321599701C3E3CA500F68FA4 /* Assets.xcassets in Resources */,
 				320A8F2F1C7730950024F518 /* WeekWeatherCell.xib in Resources */,
-				326730E71C5A649F00340338 /* WaterSound.wav in Resources */,
+				320A8F341C7732960024F518 /* Assets.xcassets in Resources */,
 				320A8F2E1C7730950024F518 /* FirstView.xib in Resources */,
+				320A8F391C77330D0024F518 /* Info.plist in Resources */,
+				320A8F351C7732960024F518 /* DINNextLTPro-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
