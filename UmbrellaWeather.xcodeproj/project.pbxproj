@@ -20,7 +20,6 @@
 		320A8F341C7732960024F518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F301C7732960024F518 /* Assets.xcassets */; };
 		320A8F351C7732960024F518 /* DINNextLTPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F311C7732960024F518 /* DINNextLTPro-Light.otf */; };
 		320A8F371C7732960024F518 /* WaterSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F331C7732960024F518 /* WaterSound.wav */; };
-		320A8F391C77330D0024F518 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 320A8F381C77330D0024F518 /* Info.plist */; };
 		3215992B1C3E35CC00F68FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215992A1C3E35CC00F68FA4 /* AppDelegate.swift */; };
 		3215994C1C3E371300F68FA4 /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215994B1C3E371300F68FA4 /* ServiceResult.swift */; };
 		3215994E1C3E371900F68FA4 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215994D1C3E371900F68FA4 /* WeatherResult.swift */; };
@@ -293,7 +292,6 @@
 				320A8F2F1C7730950024F518 /* WeekWeatherCell.xib in Resources */,
 				320A8F341C7732960024F518 /* Assets.xcassets in Resources */,
 				320A8F2E1C7730950024F518 /* FirstView.xib in Resources */,
-				320A8F391C77330D0024F518 /* Info.plist in Resources */,
 				320A8F351C7732960024F518 /* DINNextLTPro-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,10 +485,7 @@
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zerojian.UmbWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -512,10 +507,7 @@
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zerojian.UmbWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
