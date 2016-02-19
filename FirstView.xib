@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击定位⇢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCC-N5-RO0">
+                    <rect key="frame" x="40" y="42" width="63.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支持按钮⇢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-cz-Teg">
+                    <rect key="frame" x="486.5" y="42" width="63.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇣下拉设置通知提醒⇣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAP-EX-kQZ">
+                    <rect key="frame" x="8" y="232" width="114.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇡上拉到底部添加城市⇡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrI-QT-ZDU">
+                    <rect key="frame" x="468" y="352" width="124" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇣下雨几率⇣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKM-DD-a1M">
+                    <rect key="frame" x="30" y="504" width="69.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.12941177189350128" alpha="0.5" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="tKM-DD-a1M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="3Y0-mE-K7f"/>
+                <constraint firstAttribute="bottom" secondItem="tKM-DD-a1M" secondAttribute="bottom" constant="80" id="6qf-Fb-ejr"/>
+                <constraint firstAttribute="trailing" secondItem="G9Z-cz-Teg" secondAttribute="trailing" constant="50" id="Ecc-q6-EbW"/>
+                <constraint firstItem="uAP-EX-kQZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="N6c-gG-tUL"/>
+                <constraint firstItem="QrI-QT-ZDU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="60" id="NCR-Mb-Al7"/>
+                <constraint firstItem="tCC-N5-RO0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="WeI-dx-He2"/>
+                <constraint firstAttribute="trailing" secondItem="QrI-QT-ZDU" secondAttribute="trailing" constant="8" id="Xf1-ue-QCf"/>
+                <constraint firstItem="uAP-EX-kQZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="d6a-bk-35J"/>
+                <constraint firstItem="uAP-EX-kQZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-60" id="ww5-ev-Xsm"/>
+                <constraint firstItem="tCC-N5-RO0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="xsv-Wr-96w"/>
+                <constraint firstItem="G9Z-cz-Teg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="yf8-hQ-zj8"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="N6c-gG-tUL"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

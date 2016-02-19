@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DINNextLTPro-Light.otf">
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeekWeatherCell" id="1WK-wf-alE" customClass="WeekWeatherCell" customModule="UmbrellaWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="GGh-fU-ZEK">
+                        <rect key="frame" x="50" y="52" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="OjG-Vt-xbc"/>
+                            <constraint firstAttribute="height" constant="50" id="X8g-yW-2cb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-12-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="143-FR-ROm">
+                        <rect key="frame" x="8" y="10" width="134" height="17"/>
+                        <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
+                        <color key="textColor" red="0.36862745099999999" green="0.35686274509999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shape" translatesAutoresizingMaskIntoConstraints="NO" id="Vx0-SS-Y6i">
+                        <rect key="frame" x="8" y="145" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="O1S-6a-0UJ"/>
+                            <constraint firstAttribute="width" constant="16" id="iIY-mj-6kk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天气良好" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ue-nm-1PE">
+                        <rect key="frame" x="8" y="169" width="90" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="KK2-N7-LVU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nq7-b1-E7M">
+                        <rect key="frame" x="101" y="168" width="40.5" height="17"/>
+                        <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
+                        <color key="textColor" red="0.3843137254901961" green="0.79607843137254897" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-70˚/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zL9-lu-7SD">
+                        <rect key="frame" x="36" y="144" width="39" height="17"/>
+                        <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-14˚" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOs-he-ege">
+                        <rect key="frame" x="79" y="144" width="32" height="17"/>
+                        <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="17"/>
+                        <color key="textColor" red="0.36862745099999999" green="0.35686274509999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="GGh-fU-ZEK" firstAttribute="top" secondItem="1WK-wf-alE" secondAttribute="top" constant="8" id="3oS-9V-Bzv"/>
+                <constraint firstAttribute="bottom" secondItem="nq7-b1-E7M" secondAttribute="bottom" constant="15" id="6Zy-v7-pYC"/>
+                <constraint firstItem="nq7-b1-E7M" firstAttribute="leading" secondItem="6Ue-nm-1PE" secondAttribute="trailing" id="8Ax-LN-b6e"/>
+                <constraint firstItem="nq7-b1-E7M" firstAttribute="leading" secondItem="6Ue-nm-1PE" secondAttribute="trailing" constant="2" id="DfW-mf-K9e"/>
+                <constraint firstItem="GGh-fU-ZEK" firstAttribute="leading" secondItem="1WK-wf-alE" secondAttribute="leading" constant="8" id="DlG-rZ-MsG"/>
+                <constraint firstItem="GGh-fU-ZEK" firstAttribute="centerX" secondItem="1WK-wf-alE" secondAttribute="centerX" id="Eko-7c-de4"/>
+                <constraint firstItem="jOs-he-ege" firstAttribute="leading" secondItem="zL9-lu-7SD" secondAttribute="trailing" constant="4" id="EuF-et-7N1"/>
+                <constraint firstItem="6Ue-nm-1PE" firstAttribute="leading" secondItem="1WK-wf-alE" secondAttribute="leading" constant="8" id="Hwh-Gx-ZlD"/>
+                <constraint firstItem="jOs-he-ege" firstAttribute="top" secondItem="zL9-lu-7SD" secondAttribute="top" id="JbM-f8-BA0"/>
+                <constraint firstItem="143-FR-ROm" firstAttribute="top" secondItem="1WK-wf-alE" secondAttribute="top" constant="10" id="K26-gf-8ga"/>
+                <constraint firstItem="nq7-b1-E7M" firstAttribute="leading" secondItem="6Ue-nm-1PE" secondAttribute="trailing" id="L3t-Dw-b43"/>
+                <constraint firstItem="zL9-lu-7SD" firstAttribute="centerY" secondItem="Vx0-SS-Y6i" secondAttribute="centerY" id="Oau-hO-mFz"/>
+                <constraint firstItem="Vx0-SS-Y6i" firstAttribute="leading" secondItem="6Ue-nm-1PE" secondAttribute="leading" id="OeK-sR-K6i"/>
+                <constraint firstItem="nq7-b1-E7M" firstAttribute="leading" secondItem="6Ue-nm-1PE" secondAttribute="trailing" id="PhS-FF-8Zg"/>
+                <constraint firstItem="143-FR-ROm" firstAttribute="leading" secondItem="1WK-wf-alE" secondAttribute="leading" constant="8" id="UVd-IQ-gmh"/>
+                <constraint firstAttribute="trailing" secondItem="zL9-lu-7SD" secondAttribute="trailing" constant="8" id="Yh3-eI-LsA"/>
+                <constraint firstItem="zL9-lu-7SD" firstAttribute="leading" secondItem="Vx0-SS-Y6i" secondAttribute="trailing" constant="12" id="Z15-Ln-h4E"/>
+                <constraint firstAttribute="trailing" secondItem="143-FR-ROm" secondAttribute="trailing" constant="8" id="gdV-Bd-e3r"/>
+                <constraint firstAttribute="trailing" secondItem="nq7-b1-E7M" secondAttribute="trailing" constant="8" id="hll-TB-e1g"/>
+                <constraint firstItem="GGh-fU-ZEK" firstAttribute="top" secondItem="143-FR-ROm" secondAttribute="bottom" constant="25" id="uSw-2L-Sg9"/>
+                <constraint firstItem="6Ue-nm-1PE" firstAttribute="centerY" secondItem="nq7-b1-E7M" secondAttribute="centerY" id="vd4-Kt-FQU"/>
+                <constraint firstItem="jOs-he-ege" firstAttribute="centerY" secondItem="zL9-lu-7SD" secondAttribute="centerY" id="wNh-Eg-C6C"/>
+                <constraint firstItem="6Ue-nm-1PE" firstAttribute="top" secondItem="Vx0-SS-Y6i" secondAttribute="bottom" constant="8" id="yXu-9v-Aw0"/>
+            </constraints>
+            <size key="customSize" width="197" height="240"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3oS-9V-Bzv"/>
+                    <exclude reference="DlG-rZ-MsG"/>
+                    <exclude reference="Yh3-eI-LsA"/>
+                    <exclude reference="JbM-f8-BA0"/>
+                    <exclude reference="8Ax-LN-b6e"/>
+                    <exclude reference="DfW-mf-K9e"/>
+                    <exclude reference="L3t-Dw-b43"/>
+                    <exclude reference="PhS-FF-8Zg"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="dateLabel" destination="143-FR-ROm" id="w1x-xc-m2u"/>
+                <outlet property="rainPercentLabel" destination="nq7-b1-E7M" id="Z3W-Gp-AZy"/>
+                <outlet property="schemaLabel" destination="6Ue-nm-1PE" id="Te9-rg-XHn"/>
+                <outlet property="tmpMaxLabel" destination="zL9-lu-7SD" id="iEy-MH-Dos"/>
+                <outlet property="tmpMinLabel" destination="jOs-he-ege" id="9W4-Us-W6o"/>
+                <outlet property="weatherImage" destination="GGh-fU-ZEK" id="WIq-MX-7A0"/>
+            </connections>
+            <point key="canvasLocation" x="218" y="283"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Cloudy" width="80" height="66"/>
+        <image name="Shape" width="6" height="16"/>
+    </resources>
+</document>
