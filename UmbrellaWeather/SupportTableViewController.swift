@@ -143,7 +143,6 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
         }
       })
     case (2,0):
-      SKPaymentQueue.defaultQueue().addTransactionObserver(self)
       requestProducts("UmbrellaWeather_1")
       row1WidthCon.constant = row1ImageView.bounds.height
       loadingAnimation(row1ImageView)
