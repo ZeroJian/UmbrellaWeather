@@ -11,10 +11,10 @@
 
 
 ###ProjectFeatures
-- Use API NSURLSession CoreLocation of network requested and location
+- Use iOS API NSURLSession CoreLocation network requests and location
 - stroyboard layout
 - 7-day local notifications
-- Added a background refresh to refresh data
+- Added a background fetch to refresh data
 - NSKeyedArchiver Data persistence
 - UIView and layout animation
 - Added purchase and jump to AppStore function
@@ -24,14 +24,14 @@
 
 Deal with JSON data: [swiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 
-Weather Icons using free resources Use Skench increases color [Icons](http://sm-artists.com/?page_id=925)
+Weather Icons using free resources ,I use Skench adds color [Icons](http://sm-artists.com/?page_id=925)
 
 ### Matters needing attention
-The weather API nonsupport other country search, so the app only chinese ,if other country of use , location service is work 
+The weather API search does not support other languages, so the APP is only temporary Chinese version ,If you want to use in other regions , location service can work 
 
-use heweather free API service,Number of requests every day 3000
+use heweather free API service,requests times per day 3000
 
-If the request exceeds the limit are free to register [heweather](http://www.heweather.com)
+If the access limit is exceeded, you can own to register [heweather](http://www.heweather.com)
 ###项目特点 
 - 使用自带 API NSURLSession CoreLocation 网络请求和定位
 - 使用纯 storyboard 布局
