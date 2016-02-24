@@ -17,7 +17,7 @@
 - Added a background refresh to refresh data
 - NSKeyedArchiver Data persistence
 - UIView and layout animation
-- Adding purchase and jump to AppStore function
+- Added purchase and jump to AppStore function
 
 
 ###Third party libraries and resources
