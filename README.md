@@ -27,6 +27,8 @@ Deal with JSON data: [swiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 Weather Icons using free resources Use Skench increases color [Icons](http://sm-artists.com/?page_id=925)
 
 ### Matters needing attention
+The weather API nonsupport other country search, so the app only chinese ,if other country of use , location service is work 
+
 use heweather free API service,Number of requests every day 3000
 
 If the request exceeds the limit are free to register [heweather](http://www.heweather.com)
@@ -45,6 +47,8 @@ JSON 解析: [swiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 天气 Icons 使用的免费资源,自己使用 Skench 增加了颜色 [免费 Icons 网址](http://sm-artists.com/?page_id=925)
 
 ###注意事项
+天气 API 不支持其他国家的城市搜索,如果在其他国家使用,定位城市应该可以工作
+
 使用的和风天气免费 API 服务,每天访问次数 3000
 
 如果访问超出限制可自行前往注册 [和风天气官网](http://www.heweather.com)
