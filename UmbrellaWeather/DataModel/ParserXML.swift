@@ -10,7 +10,7 @@ import Foundation
 
 class ParserXML: NSObject,NSXMLParserDelegate{
   
-  var elementName = ""
+  private var elementName = ""
   var cities = [City]()
   
   override init(){
@@ -18,7 +18,7 @@ class ParserXML: NSObject,NSXMLParserDelegate{
     parseXMLResource()
   }
   
-  func parseXMLResource(){
+  private func parseXMLResource(){
     let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Citys", ofType: "xml")!))
     if let parser = parser{
       parser.delegate = self

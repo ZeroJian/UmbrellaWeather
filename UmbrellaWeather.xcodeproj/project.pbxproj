@@ -33,6 +33,7 @@
 		321599681C3E3B8E00F68FA4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321599671C3E3B8E00F68FA4 /* DataModel.swift */; };
 		3215996E1C3E3C1300F68FA4 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */; };
 		32B94B481C55E0DD006EE4BB /* UIImageView+WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */; };
+		32C8B58A1CD9F85500757CDD /* MainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8B5891CD9F85500757CDD /* MainScrollView.swift */; };
 		32D1539D1C50FB05000A4959 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1539C1C50FB05000A4959 /* HomeViewController.swift */; };
 		32F211B81C5358DE00B80498 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211B71C5358DE00B80498 /* CityListViewController.swift */; };
 		32F211BC1C5361E600B80498 /* SupportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211BB1C5361E600B80498 /* SupportTableViewController.swift */; };
@@ -42,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		320A8F1A1C74EC600024F518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		320A8F1C1C74ECBA0024F518 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		320A8F1E1C7730770024F518 /* CityListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
 		320A8F1F1C7730770024F518 /* FirstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		320A8F201C7730770024F518 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -70,6 +70,7 @@
 		321599671C3E3B8E00F68FA4 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WeatherImage.swift"; sourceTree = "<group>"; };
+		32C8B5891CD9F85500757CDD /* MainScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScrollView.swift; sourceTree = "<group>"; };
 		32D1539C1C50FB05000A4959 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		32F211B71C5358DE00B80498 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		32F211BB1C5361E600B80498 /* SupportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTableViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 			children = (
 				320A8F1E1C7730770024F518 /* CityListCell.swift */,
 				320A8F1F1C7730770024F518 /* FirstView.swift */,
+				32C8B5891CD9F85500757CDD /* MainScrollView.swift */,
 				320A8F201C7730770024F518 /* MainView.swift */,
 				320A8F211C7730770024F518 /* PullView.swift */,
 				320A8F221C7730770024F518 /* WeekWeatherCell.swift */,
@@ -355,6 +357,7 @@
 				320A8F261C7730770024F518 /* MainView.swift in Sources */,
 				3215992B1C3E35CC00F68FA4 /* AppDelegate.swift in Sources */,
 				320A8F241C7730770024F518 /* CityListCell.swift in Sources */,
+				32C8B58A1CD9F85500757CDD /* MainScrollView.swift in Sources */,
 				321599541C3E372800F68FA4 /* LocationService.swift in Sources */,
 				3215994C1C3E371300F68FA4 /* ServiceResult.swift in Sources */,
 				320A8F251C7730770024F518 /* FirstView.swift in Sources */,
@@ -383,7 +386,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				320A8F1A1C74EC600024F518 /* Base */,
-				320A8F1C1C74ECBA0024F518 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			path = ..;

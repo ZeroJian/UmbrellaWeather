@@ -48,6 +48,8 @@ class LocationService: NSObject,CLLocationManagerDelegate{
 //    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 //    return locationManager
 //  }()
+  var whenInUse = false
+  var denied = false
 
   func beginLocation(){
     let authStatus = CLLocationManager.authorizationStatus()
@@ -58,11 +60,23 @@ class LocationService: NSObject,CLLocationManagerDelegate{
       locationState = .NoService
       return
     }
+    if whenInUse{
       if updatingLocation{
         stopLocationManager()
       }else{
         startLocation()
       }
+    }
+  }
+  
+  func updateingLocation() {
+    if whenInUse{
+    if updatingLocation{
+      stopLocationManager()
+    }else{
+      startLocation()
+    }
+    }
   }
   
   private func stopLocationManager(){
@@ -71,6 +85,20 @@ class LocationService: NSObject,CLLocationManagerDelegate{
       locationManager.delegate = nil
       parserXML = nil
       updatingLocation = false
+    }
+  }
+  
+ 
+  
+  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    switch status {
+    case .AuthorizedWhenInUse:
+      whenInUse = true
+    case .Denied:
+      denied = true
+    default:
+      break
+      
     }
   }
   

@@ -14,7 +14,7 @@ protocol SupportTableViewControllerDelegate: class{
 }
 
 
-class SupportTableViewController: UITableViewController,SKStoreProductViewControllerDelegate,SKPaymentTransactionObserver,SKProductsRequestDelegate {
+class SupportTableViewController: UITableViewController,SKPaymentTransactionObserver,SKProductsRequestDelegate {
   
   @IBOutlet weak var loadingImageView: UIImageView!
   @IBOutlet weak var row1ImageView: UIImageView!
@@ -129,19 +129,7 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
     switch (indexPath.section,indexPath.row){
       
     case (1,0):
-      loadingAnimation(loadingImageView)
-      let storeViewController = SKStoreProductViewController()
-      storeViewController.delegate = self
-      storeViewController.loadProductWithParameters([SKStoreProductParameterITunesItemIdentifier : 1079751819], completionBlock: { (result, error) -> Void in
-        if result{
-          self.presentViewController(storeViewController, animated: true, completion: { () -> Void in
-            self.hiddenLoadingImageView(self.loadingImageView)
-          })
-        }else{
-          self.hiddenLoadingImageView(self.loadingImageView)
-          self.showAlert("加载商店页面出现错误,请稍后重试")
-        }
-      })
+    UIApplication.sharedApplication().openURL(NSURL(string: "itms-apps://itunes.apple.com/app/id" + "1079751819")!)
     case (2,0):
       requestProducts("UmbrellaWeather_1")
       row1WidthCon.constant = row1ImageView.bounds.height
@@ -174,10 +162,6 @@ class SupportTableViewController: UITableViewController,SKStoreProductViewContro
 
   }
   
-  
-  func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
   
   
   override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {

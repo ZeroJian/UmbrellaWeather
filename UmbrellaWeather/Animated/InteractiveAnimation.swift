@@ -10,7 +10,7 @@ import UIKit
 
 typealias animationFinshion = (Bool) -> Void
 
-  
+
   func springAnimation1(currtntView: UIView){
     currtntView.transform = CGAffineTransformMakeScale(0.8, 0.8)
     UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: { () -> Void in

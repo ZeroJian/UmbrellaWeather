@@ -264,7 +264,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   
   func supportTableViewController(controller: SupportTableViewController) {
     scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-    self.performSelector("updateUI", withObject: nil, afterDelay: 0.3)
+    self.performSelector(#selector(HomeViewController.updateUI), withObject: nil, afterDelay: 0.3)
     dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -272,7 +272,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
     
     //减少网络请求次数,相同城市只有动画效果不重新加载网络请求
     if dataModel.currentCity == city.cityCN{
-      self.performSelector("updateUI", withObject: nil, afterDelay: 0.3)
+      self.performSelector(#selector(HomeViewController.updateUI), withObject: nil, afterDelay: 0.3)
     }else{
       dataModel.currentCity = city.cityCN
       updateWeatherResult()
@@ -288,7 +288,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   
   func cityListViewControllerCancel(controller: CityListViewController) {
     scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-    self.performSelector("updateUI", withObject: nil, afterDelay: 0.3)
+    self.performSelector(#selector(HomeViewController.updateUI), withObject: nil, afterDelay: 0.3)
     dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -301,7 +301,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
     button.setTitle("开始吧!", forState: .Normal)
     button.backgroundColor = view.tintColor
     firstView.addSubview(button)
-    button.addTarget(self, action: Selector("touchBegin:"), forControlEvents: UIControlEvents.TouchUpInside)
+    button.addTarget(self, action: #selector(HomeViewController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     
     view.addSubview(firstView)
   }
