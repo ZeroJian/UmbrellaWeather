@@ -23,6 +23,26 @@ class MainView: UIView {
   var loadingImageView: UIImageView!
   var loading = false
   
+  var offsetY: CGFloat! {
+    didSet {
+      if offsetY >= 40 && offsetY <= 140 {
+        weatherImage.alpha = 1 - (0.02 * (offsetY - 30))
+      } else {
+        weatherImage.alpha = 1
+      }
+    }
+  }
+  
+//  override init(frame: CGRect) {
+//    super.init(frame: frame)
+////    animationBegin()
+//  }
+//  
+//  required init(coder aDecoder: NSCoder) {
+//    super.init(coder: aDecoder)!
+////    animationBegin()
+//  }
+  
   func updateAndAnimation(weatherResult: WeatherResult){
     animation()
     
@@ -64,6 +84,7 @@ class MainView: UIView {
     tmpMaxLabel.text = ""
     tmpMinLabel.text = ""
     rainPercentLabel.text = ""
+    print("1111111")
   }
   
   private func animation(){

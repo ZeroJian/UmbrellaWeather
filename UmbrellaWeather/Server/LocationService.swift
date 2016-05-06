@@ -52,6 +52,9 @@ class LocationService: NSObject,CLLocationManagerDelegate{
   var denied = false
 
   func beginLocation(){
+    
+    print("begin location")
+    
     let authStatus = CLLocationManager.authorizationStatus()
     if authStatus == .NotDetermined{
       locationManager.requestWhenInUseAuthorization()
@@ -60,13 +63,13 @@ class LocationService: NSObject,CLLocationManagerDelegate{
       locationState = .NoService
       return
     }
-    if whenInUse{
+//    if whenInUse{
       if updatingLocation{
         stopLocationManager()
       }else{
         startLocation()
       }
-    }
+//    }
   }
   
   func updateingLocation() {
@@ -119,6 +122,8 @@ class LocationService: NSObject,CLLocationManagerDelegate{
           print(locality)
           let city = self.rangeOfCities(locality)
           sucess = true
+          
+          print(city)
           self.locationState = .Result(city)
           
           self.stopLocationManager()

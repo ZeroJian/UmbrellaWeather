@@ -29,5 +29,30 @@ class FirstView: UIView {
     self.addSubview(view)
   }
   
+  class func firstViewButton(superView: UIView) -> UIButton {
+    let firstView = FirstView()
+    firstView.frame = superView.bounds
+    let button = UIButton()
+    button.bounds.size = CGSize(width: 100, height: 50)
+    button.center = superView.center
+    button.setTitle("开始吧!", forState: .Normal)
+    button.backgroundColor = superView.tintColor
+//    button.addTarget(superView, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+    firstView.addSubview(button)
+//    button.addTarget(self, action: #selector(HomeViewController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+    
+    superView.addSubview(firstView)
+    
+    return button
+  }
+  
+  func showViewWithFirstTime(){
+  
+  }
+  
+//  func touchBegin(sender: UIButton){
+//    firstView.removeFromSuperview()
+//    updateWeatherResult()
+//  }
   
 }

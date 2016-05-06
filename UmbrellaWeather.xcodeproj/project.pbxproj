@@ -34,6 +34,9 @@
 		3215996E1C3E3C1300F68FA4 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */; };
 		32B94B481C55E0DD006EE4BB /* UIImageView+WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */; };
 		32C8B58A1CD9F85500757CDD /* MainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8B5891CD9F85500757CDD /* MainScrollView.swift */; };
+		32C8B58C1CDA0D8F00757CDD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8B58B1CDA0D8F00757CDD /* HomeView.swift */; };
+		32C8B58E1CDA0DD700757CDD /* HeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8B58D1CDA0DD700757CDD /* HeadView.swift */; };
+		32C8B5901CDA2AAE00757CDD /* UIcolor+otherColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8B58F1CDA2AAE00757CDD /* UIcolor+otherColor.swift */; };
 		32D1539D1C50FB05000A4959 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1539C1C50FB05000A4959 /* HomeViewController.swift */; };
 		32F211B81C5358DE00B80498 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211B71C5358DE00B80498 /* CityListViewController.swift */; };
 		32F211BC1C5361E600B80498 /* SupportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F211BB1C5361E600B80498 /* SupportTableViewController.swift */; };
@@ -71,6 +74,9 @@
 		3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		32B94B471C55E0DD006EE4BB /* UIImageView+WeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WeatherImage.swift"; sourceTree = "<group>"; };
 		32C8B5891CD9F85500757CDD /* MainScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScrollView.swift; sourceTree = "<group>"; };
+		32C8B58B1CDA0D8F00757CDD /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		32C8B58D1CDA0DD700757CDD /* HeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadView.swift; sourceTree = "<group>"; };
+		32C8B58F1CDA2AAE00757CDD /* UIcolor+otherColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+otherColor.swift"; sourceTree = "<group>"; };
 		32D1539C1C50FB05000A4959 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		32F211B71C5358DE00B80498 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		32F211BB1C5361E600B80498 /* SupportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTableViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 				3215996D1C3E3C1300F68FA4 /* TimePickerViewController.swift */,
 				32F211BB1C5361E600B80498 /* SupportTableViewController.swift */,
 				32F211B71C5358DE00B80498 /* CityListViewController.swift */,
+				32C8B58F1CDA2AAE00757CDD /* UIcolor+otherColor.swift */,
 				3221724B1C5B8854008EBA1D /* View */,
 				321599421C3E36BD00F68FA4 /* Animated */,
 				321599411C3E36A700F68FA4 /* Service */,
@@ -170,6 +177,8 @@
 				320A8F1F1C7730770024F518 /* FirstView.swift */,
 				32C8B5891CD9F85500757CDD /* MainScrollView.swift */,
 				320A8F201C7730770024F518 /* MainView.swift */,
+				32C8B58B1CDA0D8F00757CDD /* HomeView.swift */,
+				32C8B58D1CDA0DD700757CDD /* HeadView.swift */,
 				320A8F211C7730770024F518 /* PullView.swift */,
 				320A8F221C7730770024F518 /* WeekWeatherCell.swift */,
 				320A8F231C7730770024F518 /* WeekWeatherCollectionView.swift */,
@@ -363,6 +372,7 @@
 				320A8F251C7730770024F518 /* FirstView.swift in Sources */,
 				32F211B81C5358DE00B80498 /* CityListViewController.swift in Sources */,
 				32F211C01C53EFC900B80498 /* InteractiveAnimation.swift in Sources */,
+				32C8B58E1CDA0DD700757CDD /* HeadView.swift in Sources */,
 				32F211BC1C5361E600B80498 /* SupportTableViewController.swift in Sources */,
 				320A8F281C7730770024F518 /* WeekWeatherCell.swift in Sources */,
 				32D1539D1C50FB05000A4959 /* HomeViewController.swift in Sources */,
@@ -370,10 +380,12 @@
 				321599601C3E379400F68FA4 /* ParserXML.swift in Sources */,
 				3215994E1C3E371900F68FA4 /* WeatherResult.swift in Sources */,
 				320A8F271C7730770024F518 /* PullView.swift in Sources */,
+				32C8B5901CDA2AAE00757CDD /* UIcolor+otherColor.swift in Sources */,
 				321599501C3E371E00F68FA4 /* DailyResult.swift in Sources */,
 				3215995E1C3E378F00F68FA4 /* City.swift in Sources */,
 				3215996E1C3E3C1300F68FA4 /* TimePickerViewController.swift in Sources */,
 				3215995A1C3E377200F68FA4 /* GradientView.swift in Sources */,
+				32C8B58C1CDA0D8F00757CDD /* HomeView.swift in Sources */,
 				321599581C3E376C00F68FA4 /* DimmingPresentationController.swift in Sources */,
 				321599681C3E3B8E00F68FA4 /* DataModel.swift in Sources */,
 			);

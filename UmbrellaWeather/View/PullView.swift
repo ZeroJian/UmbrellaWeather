@@ -19,77 +19,99 @@ class PullView: UIView {
   
   
   var shoudRemind: Bool! {
-    didSet {
-      if oldValue == true {
+    willSet {
+      if newValue == true {
         remindString = "释放更换通知时间"
-      }else if oldValue == false {
+        if offsetY <= -100 {
+          remindLabel.text = "释放取消通知"
+          remindLabel.textColor = UIColor.GreenBlue()
+          animationWithColor(self, color: UIColor.shallowBlack())
+        }
+        
+        
+      }else if newValue == false {
         remindString = "释放激活下雨通知"
       }
+    }
+  }
+  
+  var endDragging: Bool? {
+    willSet{
+      if newValue == true {
+//        if shoudRemind == true {
+          hiddenView()
+      }
+    }
+    didSet {
+      endDragging = nil
     }
   }
   
   var remindString: String!
   
   var offsetY: CGFloat! {
-    didSet {
-      if offsetY < -30 {
+    willSet {
+      
+      if endDragging != true {
+      if newValue < -30 {
         lineAnimation()
-        topHeightConstraion.constant = abs(offsetY)
+        topHeightConstraion.constant = abs(newValue)
         self.hidden = false
-        if offsetY <= -60 && offsetY > -100 {
-          viewDidScroll("↓下拉设置通知", labelColor: UIColor.whiteColor(), alpha: 0.04 * (abs(offsetY) - 60), hidden: false)
-          animationWithColor(self,color:self.tintColor)
-          if offsetY < -85 {
-            viewDidScroll(remindString, labelColor: UIColor.whiteColor(), alpha: 1, hidden: false)
+        
+        if newValue <= -60 && newValue > -100 {
+          
+          viewDidScroll("↓下拉设置通知", alpha: 0.04 * (abs(newValue) - 60))
+          animationWithColor(self,color:UIColor.GreenBlue())
+
+          if newValue < -85 {
+            viewDidScroll(remindString, alpha: 1)
           }
-          if shoudRemind == true && offsetY <= -100 {
-            remindLabel.text = ""
-            remindLabel.textColor = self.tintColor
-            animationWithColor(self, color: UIColor.brownColor())
-          }
+//          if shoudRemind == true && newValue <= -100 {
+//            remindLabel.text = "释放取消通知"
+//            remindLabel.textColor = UIColor.GreenBlue()
+//            animationWithColor(self, color: UIColor.shallowBlack())
+//          }
         }
-      } else if offsetY > 200 {
-        buttonHeightConstraion.constant = offsetY - 190
+        
       } else {
+        if !self.hidden {
+//        print("hiddenview")
         hiddenView()
 //        self.backgroundColor = UIColor.brownColor()
+        }
       }
-      
+      }
     }
   }
 
-  func viewDidScroll(labelText: String!,labelColor: UIColor,alpha: CGFloat,hidden: Bool){
-    remindLabel.hidden = hidden
+  func viewDidScroll(labelText: String!,alpha: CGFloat){
+    remindLabel.hidden = false
     remindLabel.text = labelText
-    remindLabel.textColor = labelColor
+    remindLabel.textColor = UIColor.whiteColor()
     remindLabel.alpha = alpha
   }
   
   
-  func lineAnimated(offsetY: CGFloat) {
-    if offsetY < -30 {
-      lineAnimation()
-    }
-  }
-  
   
   func lineAnimation(){
+    lineImage.hidden = false
     lineXConstraion.constant = self.bounds.width
     UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
       self.layoutIfNeeded()
       }, completion: nil)
   }
   
-  func initialLine(){
-    lineXConstraion.constant -= lineImage.bounds.width
-  }
+//  func initialLine(){
+//    lineXConstraion.constant -= lineImage.bounds.width
+//  }
   
   func hiddenView(){
     self.hidden = true
     remindLabel.hidden = true
     remindLabel.alpha = 0
+    lineImage.hidden = true
     topHeightConstraion.constant = 0
-    self.backgroundColor = UIColor.brownColor()
+    self.backgroundColor = UIColor.shallowBlack()
     lineXConstraion.constant -= lineImage.bounds.width
   }
  
