@@ -35,11 +35,12 @@ class ServiceResult {
     let session = NSURLSession.sharedSession()
     dataTask = session.dataTaskWithURL(url) { (data, response, error) -> Void in
       var success = false
-      self.state = .NoYet
-      if error != nil{
+      if error != nil && error?.code == -999{
         print(error)
+        return
       }
       if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200 ,let data = data{
+        success = true
         let dictionary = self.parseJSON(data)
         let weatherResult = self.parseDictionary(dictionary)
         if weatherResult.ServiceStatus == "no more requests"{
@@ -49,7 +50,7 @@ class ServiceResult {
         }else{
         self.state = .Results(weatherResult)
         }
-        success = true
+        
       }
       dispatch_async(dispatch_get_main_queue(), {
         completion(success)

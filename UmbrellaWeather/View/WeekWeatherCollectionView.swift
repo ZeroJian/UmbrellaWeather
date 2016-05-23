@@ -16,5 +16,5 @@ class WeekWeatherCollectionView: UICollectionView {
     let cellNib = UINib(nibName: "WeekWeatherCell", bundle: nil)
     self.registerNib(cellNib, forCellWithReuseIdentifier: "WeekWeatherCell")
   }
-
+  
 }

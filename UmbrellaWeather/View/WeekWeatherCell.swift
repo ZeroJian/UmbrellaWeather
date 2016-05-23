@@ -21,7 +21,6 @@ class WeekWeatherCell: UICollectionViewCell{
   }
   
   func configureForDailyResult(dailyResult: DailyResult){
-    
     dateLabel.text = dailyResult.dailyDate
     schemaLabel.text = dailyResult.dailyState
     tmpMaxLabel.text = dailyResult.dailyTmpMax + " /"

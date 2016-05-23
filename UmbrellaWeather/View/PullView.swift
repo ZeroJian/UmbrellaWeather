@@ -27,8 +27,6 @@ class PullView: UIView {
           remindLabel.textColor = UIColor.GreenBlue()
           animationWithColor(self, color: UIColor.shallowBlack())
         }
-        
-        
       }else if newValue == false {
         remindString = "释放激活下雨通知"
       }
@@ -37,13 +35,7 @@ class PullView: UIView {
   
   var endDragging: Bool? {
     willSet{
-      if newValue == true {
-//        if shoudRemind == true {
-          hiddenView()
-      }
-    }
-    didSet {
-      endDragging = nil
+      hiddenView()
     }
   }
   
@@ -51,38 +43,24 @@ class PullView: UIView {
   
   var offsetY: CGFloat! {
     willSet {
-      
-      if endDragging != true {
       if newValue < -30 {
         lineAnimation()
         topHeightConstraion.constant = abs(newValue)
         self.hidden = false
-        
         if newValue <= -60 && newValue > -100 {
-          
           viewDidScroll("↓下拉设置通知", alpha: 0.04 * (abs(newValue) - 60))
           animationWithColor(self,color:UIColor.GreenBlue())
-
           if newValue < -85 {
             viewDidScroll(remindString, alpha: 1)
           }
-//          if shoudRemind == true && newValue <= -100 {
-//            remindLabel.text = "释放取消通知"
-//            remindLabel.textColor = UIColor.GreenBlue()
-//            animationWithColor(self, color: UIColor.shallowBlack())
-//          }
         }
-        
       } else {
-        if !self.hidden {
-//        print("hiddenview")
-        hiddenView()
-//        self.backgroundColor = UIColor.brownColor()
+          if !self.hidden {
+            hiddenView()
+          }
         }
-      }
       }
     }
-  }
 
   func viewDidScroll(labelText: String!,alpha: CGFloat){
     remindLabel.hidden = false
@@ -90,7 +68,6 @@ class PullView: UIView {
     remindLabel.textColor = UIColor.whiteColor()
     remindLabel.alpha = alpha
   }
-  
   
   
   func lineAnimation(){
@@ -101,9 +78,6 @@ class PullView: UIView {
       }, completion: nil)
   }
   
-//  func initialLine(){
-//    lineXConstraion.constant -= lineImage.bounds.width
-//  }
   
   func hiddenView(){
     self.hidden = true

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     let serviceResult = ServiceResult()
     serviceResult.fetchDailyResults(dataModel.currentCity) { [weak self] dailyResults  in
-      self?.dataModel.dailyResults = dailyResults
+      self?.dataModel.weatherResult.dailyResults = dailyResults
       self?.dataModel.saveData()
       completionHandler(.NewData)
     }
@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillEnterForeground(application: UIApplication) {
     let serviceResult = ServiceResult()
     serviceResult.fetchDailyResults(dataModel.currentCity) { [weak self] dailyResults  in
-      self?.dataModel.dailyResults = dailyResults
+      self?.dataModel.weatherResult.dailyResults = dailyResults
     }
   }
 

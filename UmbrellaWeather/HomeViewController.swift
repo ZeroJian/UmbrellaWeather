@@ -11,155 +11,97 @@ import AudioToolbox
 
 class HomeViewController: UIViewController,TimePickerViewControllerDelegate,SupportTableViewControllerDelegate,CityListViewControllerDelegate,HomeViewDelegate{
 
-//  @IBOutlet weak var scrollView: MainScrollView!
   @IBOutlet weak var collectionView: UICollectionView!
-//  @IBOutlet weak var pullDownView: PullView!
-//  @IBOutlet weak var pullTopView: PullView!
-//  @IBOutlet weak var mainView: MainView!
-//  var cityButton: UIButton!
-//  @IBOutlet weak var dateLabel: UILabel!
-//  @IBOutlet weak var dateView: UIView!
-//  @IBOutlet weak var detailButton: UIButton!
-  var observer: AnyObject!
   @IBOutlet weak var homeView: HomeView!
-//    didSet {
-//      homeView.delegate = self
-//    }
-//  }
   
-  var firstButton: UIButton? {
-    didSet {
-      if let firstButton = firstButton {
-        if firstButton.touchInside {
-          updateWeatherResult()
-        }
-      }
-    }
-  }
-  var buttonTap = false
-  var weatherResult = WeatherResult()
   var serviceResult = ServiceResult()
   var dataModel: DataModel!
-  var firstView: UIView!
-  var dateString: String!
-  var shoudRemand = false
+  var observer: AnyObject!
+  var buttonClicked = false
   var soundID: SystemSoundID = 0
   
   override func viewDidLoad() {
         super.viewDidLoad()
     loadSoundEffect("WaterSound.wav")
-//    homeView.initialUI()
     launchAnimation(self.view) { (finishion) in
       if finishion{
         self.handleFirstTime()
       }
     }
-    
-      homeView.headView.initialRemindStatus(dataModel.dueString, remind: dataModel.shouldRemind)
-    
-    
-    
-    
+    homeView.showRemindStatus(withTimeString:dataModel.dueString, remind: dataModel.shouldRemind)
     homeView.delegate = self
-//    self.homeView.scorllView.mainView.loadingAnimated()
-    listenForHeadButton()
+    listenForLocation()
   }
   
-  func listenForHeadButton() {
-//    observer = NSNotificationCenter.defaultCenter().addObserverForName("LocationAuthorizationStatus.alwaysUsed", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { [weak self](_) -> Void in
-//      
-//      })
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(locationButton(_: )), name: "HeadButton", object: nil)
+  override func viewDidDisappear(animated: Bool) {
+    homeView.initialUI()
   }
   
-  func locationButton(notification: NSNotification){
-//    updateWeatherResult()
-    print("22222222")
-    buttonTap = true
-    updateWeatherResult()
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
+  
+  @IBAction func location() {
     
-//    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-//    let senderDictionary = notification.userInfo
-//    cityButton = notification.userInfo?["sender"] as! UIButton
+    buttonClicked = true
+    
+    updateWeatherResult()
   }
-  
+
   func updateWeatherResult(){
     homeView.initialUI()
     
-    if dataModel.currentCity == "" || buttonTap == true{
-     locationCity()
-      buttonTap = false
-      print("perererere")
+    if dataModel.currentCity == "" || buttonClicked == true{
+      buttonClicked = false
+      locationCity()
     }else{
-      print("perffffff")
       perforRequest()
     }
   }
   
+  func listenForLocation() {
+    observer = NSNotificationCenter.defaultCenter().addObserverForName("Location_Denied", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { [weak self](_) in
+      self?.showAlert("没有打开定位服务请在设置中打开定位或上拉搜索选择城市", "好的", againReuqest:  false, shouldRemind: false)
+      })
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(observer)
+  }
+  
   func locationCity(){
-    let locationService = LocationService.singleClass
-    locationService.beginLocation()
-
-    locationService.afterUpdatedCityAction = {
+    LocationService.startLocation()
+    LocationService.sharedManager.afterUpdatedCityAction = {
       [weak self] sucess in
       if !sucess{
-        self?.homeView.scorllView.mainView.loadingFinish()
+        self?.homeView.loadingAnimationStatus(.Finish)
         let message = "定位失败,请稍后重试或上滑视图打开城市搜索"
         self?.showAlert(message, "好的", againReuqest: false, shouldRemind: false)
       }
-      self?.showLocationStatus(locationService)
+      self?.showLocationStatus()
     }
-    showLocationStatus(locationService)
+    showLocationStatus()
   }
   
-  func showLocationStatus(locationService: LocationService){
-    switch locationService.locationState{
-    case .NoService:
-      if homeView.scorllView.mainView.loading{
-        homeView.scorllView.mainView.loadingFinish()
-      }
-      let message = "没有打开定位服务,请在系统设置里激活程序的定位服务,或上拉视图到底部打开城市搜索添加城市"
-      showAlert(message, "好的", againReuqest: false, shouldRemind: false)
+  
+  func showLocationStatus(){
+    switch LocationService.sharedManager.locationStatus{
     case .Loading:
-      if !homeView.scorllView.mainView.loading{
-        homeView.scorllView.mainView.loadingAnimated()
-      }
+      homeView.loadingAnimationStatus(.Loading)
     case .Result(let city):
-      homeView.scorllView.mainView.loadingFinish()
         dataModel.currentCity = city
-      
         perforRequest()
     case .Normal:
       return
     }
   }
   
-  override func viewDidDisappear(animated: Bool) {
-//    initialUI()
-    homeView.initialUI()
-  }
-  
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-  
-//  func initialUI(){
-//    mainView.animationBegin()
-//    
-//    //不设置两次 Button 的 Title 会出现几帧省略号 bug?
-//    cityButton.titleLabel?.text = "   "
-//    cityButton.setTitle("   ", forState: .Normal)
-//    
-//    dateLabel.text = ""
-//  }
-  
   func perforRequest(){
       serviceResult.performResult(dataModel.currentCity) { success in
         print("网络请求")
         if !success{
-          self.homeView.scorllView.mainView.loadingFinish()
+          self.homeView.loadingAnimationStatus(.Finish)
           let message = "网络请求出现错误,请稍后重试"
           self.showAlert(message,"取消", againReuqest: true,shouldRemind: false)
         }
@@ -171,44 +113,28 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   func showRequestStatus(){
     switch serviceResult.state{
     case .Loading:
-      if !homeView.scorllView.mainView.loading{
-         homeView.scorllView.mainView.loadingAnimated()
-      }
+      homeView.loadingAnimationStatus(.Loading)
     case .Results(let result):
-      weatherResult = result
-      dataModel.dailyResults = weatherResult.dailyResults
+      dataModel.weatherResult = result
       updateUI()
-      homeView.scorllView.mainView.loadingFinish()
-      
-      print(111111111)
+      homeView.loadingAnimationStatus(.Finish)
     case .NoRequest:
       let message = "今天服务器请求已经超过访问次数,请明天再试"
       showAlert(message,"好的", againReuqest: false,shouldRemind: false)
-      homeView.scorllView.mainView.loadingFinish()
+      homeView.loadingAnimationStatus(.Finish)
     case .NonsupportCity:
       dataModel.currentCity = ""
       let message = "很抱歉,服务器暂不支持此城市,请在城市搜索界面查找其他城市"
       showAlert(message, "好的", againReuqest: false, shouldRemind: false)
-      homeView.scorllView.mainView.loadingFinish()
+      homeView.loadingAnimationStatus(.Finish)
+      break
     case .NoYet:
       return
     }
-   
   }
   
   func updateUI(){
-//    if weatherResult.city == ""{
-//     return
-//    }
-    homeView.updateUI(weatherResult)
-//    mainView.updateAndAnimation(weatherResult)
-//    cityButton.setTitle(weatherResult.city, forState: .Normal)
-    let currentdate = NSDate()
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "EEEE"
-    let  convertedDate = dateFormatter.stringFromDate(currentdate)
-//    dateLabel.text = convertedDate
-    dateString = convertedDate
+    homeView.updateUI(dataModel.weatherResult)
     collectionView.reloadData()
   }
   
@@ -217,14 +143,19 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let firstTime = userDefaults.boolForKey("FirstTime")
     if firstTime{
-//      showViewWithFirstTime()
-      
-      firstButton = FirstView.firstViewButton(self.view)
+      let firstView = FirstView.showView(self.view)
+      firstView.doneButton.addTarget(self, action: #selector(touchBegin), forControlEvents: .TouchUpInside)
+      firstView.tag = 1000;
       userDefaults.setBool(false, forKey: "FirstTime")
       userDefaults.synchronize()
     }else{
       updateWeatherResult()
     }
+  }
+  
+  func touchBegin(){
+    self.view .viewWithTag(1000)!.removeFromSuperview()
+    updateWeatherResult()
   }
   
   func showAlert(message: String, _ actionTitle: String,againReuqest: Bool,shouldRemind: Bool){
@@ -259,24 +190,12 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   func shoudldNotification(should: Bool){
     
     dataModel.shouldRemind = should
-    
     if should{
       playSoundEffect()
-//      dataModel.shouldRemind = true
-//      dateLabel.text = dataModel.dueString
-//      dateView.backgroundColor = mainView.rainPercentLabel.textColor
-//      springAnimation1(dateView)
-//      detailButton.setBackgroundImage(UIImage(named: "DetailColor"), forState: .Normal)
-      
       let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
       UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }else{
-//      springAnimation1(dateView)
-//      self.dateView.backgroundColor = self.view.tintColor
       self.dataModel.dueString = "__ : __"
-//      self.dateLabel.text = dataModel.dueString
-//      self.dataModel.shouldRemind = false
-//      detailButton.setBackgroundImage(UIImage(named: "Detail"), forState: .Normal)
     }
     homeView.headViewContext(should, timeString: dataModel.dueString)
   }
@@ -312,8 +231,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   }
   
   func supportTableViewController(controller: SupportTableViewController) {
-//    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-    homeView.setScrollViewOffset()
+    homeView.initialScrollViewOffset()
     self.performSelector(#selector(HomeViewController.updateUI), withObject: nil, afterDelay: 0.3)
     dismissViewControllerAnimated(true, completion: nil)
   }
@@ -328,7 +246,7 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
       updateWeatherResult()
     }
     dataModel.appendCity(city)
-    homeView.setScrollViewOffset()
+    homeView.initialScrollViewOffset()
     dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -337,59 +255,26 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   }
   
   func cityListViewControllerCancel(controller: CityListViewController) {
-//    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-    homeView.setScrollViewOffset()
+    homeView.initialScrollViewOffset()
     self.performSelector(#selector(HomeViewController.updateUI), withObject: nil, afterDelay: 0.3)
     dismissViewControllerAnimated(true, completion: nil)
   }
   
-  func showViewWithFirstTime(){
-    firstView = FirstView()
-    firstView.frame = view.bounds
-    let button = UIButton()
-    button.bounds.size = CGSize(width: 100, height: 50)
-    button.center = view.center
-    button.setTitle("开始吧!", forState: .Normal)
-    button.backgroundColor = view.tintColor
-    firstView.addSubview(button)
-    button.addTarget(self, action: #selector(HomeViewController.touchBegin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-    
-    view.addSubview(firstView)
-  }
-  
-  func touchBegin(sender: UIButton){
-    firstView.removeFromSuperview()
-    updateWeatherResult()
-  }
-  
-  func HomeViewDidScroll(view: HomeView,offsety: CGFloat) {
-//    let offSety = scrollView.contentOffset.y
-////    if offSety < -30{
-////            pullDownView.lineAnimation()
-////            pullDownView.topHeightConstraion.constant = abs(offSety)
-////            pullDownView.hidden = false
-    homeView.remindStatus(dataModel.shouldRemind)
-    
-//    if offsety < -85 && offsety > -100{
-//      
-//      shoudRemand = true
-//    }
-    
-  }
-  
-  func HomeViewEndDragging(view: HomeView,offsety: CGFloat,showTimePicker: Bool) {
-//    let offSety = scrollView.contentOffset.y
-//    self.scrollView.pullDownView.endDragging = endDragging
+  func HomeViewScrollStatus(view: HomeView, status: ScrollStatus, offsety: CGFloat, showTimePicker: Bool) {
+    switch status {
+    case .DidScroll:
+      homeView.remindStatus(dataModel.shouldRemind)
+    case .EndDragging:
       if showTimePicker {
         performSegueWithIdentifier("TimePicker", sender: self)
       }
-      
       if offsety <= -100 && !showTimePicker{
         showAlert("","不取消", againReuqest: false, shouldRemind: true)
       }
       if offsety >= 260{
         performSegueWithIdentifier("CityList", sender: self)
       }
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -409,84 +294,16 @@ class HomeViewController: UIViewController,TimePickerViewControllerDelegate,Supp
   }
 }
 
-//extension HomeViewController: UIScrollViewDelegate{
-//  func scrollViewDidScroll(scrollView: UIScrollView) {
-//    
-//    let offSety = scrollView.contentOffset.y
-//    self.scrollView.didScroll(offSety)
-//    if offSety < -30{
-////      pullDownView.lineAnimation()
-////      pullDownView.topHeightConstraion.constant = abs(offSety)
-////      pullDownView.hidden = false
-//      if offSety <= -60 && offSety > -100{
-//        shoudRemand = false
-//       
-////        pullDownView.viewDidScroll("↓下拉设置通知", labelColor: UIColor.whiteColor(), alpha: 0.04 * (abs(offSety) - 60), hidden: false)
-////        dateLabel.text = dataModel.dueString
-////        dateView.backgroundColor = view.tintColor
-////        animationWithColor(pullDownView,color:view.tintColor)
-////        if offSety < -85{
-////          shoudRemand = true
-////          let remindString: String!
-////          if dataModel.shouldRemind{
-////            remindString = "释放更换通知时间"
-////          }else{
-////            remindString = "释放激活下雨通知"
-////          }
-////          pullDownView.viewDidScroll(remindString, labelColor: UIColor.whiteColor(), alpha: 1, hidden: false)
-////        }
-//      }
-//      if dataModel.shouldRemind && offSety <= -100{
-//        shoudRemand = false
-////        pullDownView.remindLabel.text = "释放取消通知"
-////        pullDownView.remindLabel.textColor = view.tintColor
-////        dateLabel.text = dataModel.dueString
-////        dateView.backgroundColor = collectionView.backgroundColor
-////        animationWithColor(pullDownView, color: collectionView.backgroundColor!)
-//      }
-////    }else if offSety >= 40 && offSety <= 140{
-////      mainView.weatherImage.alpha = 1 - (0.02 * (offSety - 30))
-////    }else if offSety > 200{
-////      pullTopView.buttonHeightConstraion.constant = offSety - 190
-////    }else{
-////      shoudRemand = false
-////      pullDownView.hiddenView()
-////      pullDownView.backgroundColor = collectionView.backgroundColor
-////      pullDownView.initialLine()
-////      dateLabel.text = dateString
-////      dateView.backgroundColor = collectionView.backgroundColor
-////      mainView.weatherImage.alpha = 1
-//    }
-//  }
-//  
-//  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//    let offSety = scrollView.contentOffset.y
-//    self.scrollView.pullDownView.endDragging = decelerate
-//    if decelerate{
-//      if shoudRemand{
-////        pullDownView.hiddenView()
-//        performSegueWithIdentifier("TimePicker", sender: scrollView)
-//      }
-//      if offSety <= -100 && pullDownView.remindLabel.text == "释放取消通知"{
-////        pullDownView.hiddenView()
-//        showAlert("","不取消", againReuqest: false, shouldRemind: true)
-//      }
-//      if offSety >= 260{
-//        performSegueWithIdentifier("CityList", sender: scrollView)
-//      }
-//    }
-//  }
-//}
 
 extension HomeViewController: UICollectionViewDataSource{
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return weatherResult.dailyResults.count
+    return dataModel.weatherResult.dailyResults.count
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WeekWeatherCell", forIndexPath: indexPath) as! WeekWeatherCell
     
-    let dailyResult = weatherResult.dailyResults[indexPath.item]
+    let dailyResult = dataModel.weatherResult.dailyResults[indexPath.item]
     cell.configureForDailyResult(dailyResult)
     
     return cell

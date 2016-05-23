@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HdM-UT-ua9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HdM-UT-ua9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -335,7 +335,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="headButton:" destination="j1p-0A-Ee2" eventType="touchUpInside" id="NQj-Ls-EYc"/>
+                                            <action selector="location" destination="HdM-UT-ua9" eventType="touchUpInside" id="41B-bA-HS5"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-Ul-Zet">
@@ -399,7 +399,7 @@
                                     <constraint firstAttribute="trailing" secondItem="SnF-Lt-ct1" secondAttribute="trailing" constant="5" id="vYF-tU-Krk"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="cityButton" destination="JVc-HV-ccf" id="X4G-Xr-CCJ"/>
+                                    <outlet property="cityButton" destination="JVc-HV-ccf" id="lxp-pG-C9y"/>
                                     <outlet property="dateLabel" destination="C1I-Yj-Xp0" id="fsR-Gb-i9B"/>
                                     <outlet property="dateView" destination="cOQ-Ul-Zet" id="OqV-9D-mvx"/>
                                     <outlet property="detailButton" destination="SnF-Lt-ct1" id="oE1-PH-3jA"/>
@@ -522,7 +522,7 @@
                                             <outlet property="buttonHeightConstraion" destination="7Xe-p5-6ei" id="syw-8J-PTf"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-Sn-c4t" customClass="MainView" customModule="UmbrellaWeather" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-Sn-c4t" customClass="WeatherView" customModule="UmbrellaWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-7Y-G0Q">
@@ -670,7 +670,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="mainView" destination="6AB-Sn-c4t" id="iqD-kN-sRU"/>
+                                    <outlet property="WeatherView" destination="6AB-Sn-c4t" id="iqD-kN-sRU"/>
                                     <outlet property="pullDownView" destination="jKh-dx-ymP" id="fiH-TU-9KZ"/>
                                 </connections>
                             </scrollView>

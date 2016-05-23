@@ -17,30 +17,15 @@ import UIKit
 
 class MainScrollView: UIScrollView {
   
-  @IBOutlet weak var mainView: MainView!
-  @IBOutlet weak var weakView: UIView!
+  @IBOutlet weak var weatherView: WeatherView!
   @IBOutlet weak var pullDownView: PullView!
-  
-//  weak var mainDelegate: MainScrollViewDelegate?
   
   
   func didScroll(offsetY: CGFloat) {
     pullDownView.offsetY = offsetY
-    mainView.offsetY = offsetY
-    
+    weatherView.offsetY = offsetY
   }
 
-    override init(frame: CGRect) {
-      super.init(frame: frame)
-  //    animationBegin()
-      print("555555555")
-    }
-  
-    required init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)!
-  //    animationBegin()
-      print("555555555")
-    }
   
 }
 

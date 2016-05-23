@@ -11,9 +11,7 @@ import UIKit
 protocol CityListViewControllerDelegate: class{
   func cityListViewControolerDidSelectCity(controller: CityListViewController, didSelectCity city: City)
   func cityListViewControllerCancel(controller: CityListViewController)
-  
   func cityListViewControllerDeleteCity(controller: CityListViewController, currentCities cities: [City])
-
 }
 
 

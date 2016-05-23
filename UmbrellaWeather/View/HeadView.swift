@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol HeadViewDelegate: class {
-  func buttonTapForHeadView(view: HeadView,sender: UIButton)
-}
-
 class HeadView: UIView {
   
   @IBOutlet weak var detailButton: UIButton!
@@ -19,30 +15,16 @@ class HeadView: UIView {
   @IBOutlet weak var dateView: UIView!
   @IBOutlet weak var dateLabel: UILabel!
   
-  weak var delegate: HeadViewDelegate?
   
-  var timeString: String!{
-    willSet {
-     
-//      springAnimation1(dateView)
-      
-    }
-    
-  }
+  var timeString: String!
   
   var endDragging: Bool? {
     willSet{
-      if newValue == true {
         dateView.backgroundColor = UIColor.shallowBlack()
       if dateString != nil {
           dateLabel.text = dateString
+        }
       }
-      }
-    }
-    
-    didSet{
-      endDragging = nil
-    }
   }
   
   var dateString: String!
@@ -54,14 +36,8 @@ class HeadView: UIView {
       dateLabel.text = timeString
       remindStatus = newValue
     if newValue == true {
-//      springAnimation1(dateView)
-//      dateLabel.text = timeString
-      
-      
       detailButton.setBackgroundImage(UIImage(named: "DetailColor"), forState: .Normal)
     } else if newValue == false {
-//        dateView.backgroundColor = self.tintColor
-      
        detailButton.setBackgroundImage(UIImage(named: "Detail"), forState: .Normal)
       }
     }
@@ -71,17 +47,13 @@ class HeadView: UIView {
   
   var offsetY: CGFloat! {
     willSet {
-      print(timeString)
-      if endDragging != true {
       if newValue <= -60 {
         dateLabel.text = timeString
         dateView.backgroundColor = self.tintColor
-        print("headview <= -60")
         if remindStatus == true && newValue <= -100 {
           dateLabel.text = timeString
           dateView.backgroundColor = UIColor.shallowBlack()
         }
-        
       } else {
         if dateString != "" {
           dateLabel.text = dateString
@@ -89,32 +61,21 @@ class HeadView: UIView {
         dateView.backgroundColor = UIColor.shallowBlack()
       }
     }
-    }
   }
   
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-//    initialTextString()
   }
   
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)!
-//    initialTextString()
   }
   
   func initialTextString() {
     cityButton.titleLabel?.text = "   "
     cityButton.setTitle("   ", forState: .Normal)
     dateLabel.text = ""
-  }
-  
-  func initialRemindStatus(time: String, remind: Bool) {
-    timeString = time
-    remindStatus = remind
-    if remind {
-    detailButton.setBackgroundImage(UIImage(named: "DetailColor"), forState: .Normal)
-    }
   }
   
   func updateUI(cityName: String!) {
@@ -132,19 +93,8 @@ class HeadView: UIView {
     }
   }
   
-  @IBAction func headButton(sender: UIButton) {
-    initialTextString()
-//  NSNotificationCenter.defaultCenter().postNotificationName("headButton"  , object: nil)
-    
-    NSNotificationCenter.defaultCenter().postNotificationName("HeadButton", object: nil, userInfo: ["sender": sender])
-    print("button taped")
+  @IBAction func headButton() {
+    print("head button tap")
   }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
