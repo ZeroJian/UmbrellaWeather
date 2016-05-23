@@ -10,6 +10,8 @@ import UIKit
 
 class FirstView: UIView {
   
+  var doneButton: UIButton!
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     loadViewFormNib()
@@ -29,5 +31,18 @@ class FirstView: UIView {
     self.addSubview(view)
   }
   
+  class func showView(superview: UIView) -> FirstView {
+    let firstView = FirstView()
+    firstView.frame = superview.bounds
+    superview.addSubview(firstView)
+    
+    firstView.doneButton = UIButton()
+    firstView.doneButton.bounds.size = CGSize(width: 100, height: 50)
+    firstView.doneButton.center = firstView.center
+    firstView.doneButton.setTitle("开始吧!", forState: .Normal)
+    firstView.doneButton.backgroundColor = UIColor.rainColor()
+    firstView.addSubview(firstView.doneButton)
+    return firstView
+  }
   
 }

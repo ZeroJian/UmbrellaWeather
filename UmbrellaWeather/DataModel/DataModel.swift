@@ -13,7 +13,8 @@ class DataModel{
   var dueString = "__ : __"
   var shouldRemind = false
   var cities = [City]()
-  var dailyResults = [DailyResult]()
+//  var dailyResults = [DailyResult]()
+  var weatherResult = WeatherResult()
   
   init(){
     handleFirstTime()
@@ -29,7 +30,7 @@ class DataModel{
       let formatter = NSDateFormatter()
        formatter.dateFormat = "yyyy-MM-ddHH:mm"
    
-      for dailyResult in dailyResults{
+      for dailyResult in weatherResult.dailyResults{
         
         let dateString = dailyResult.dailyDate
         let pop = dailyResult.dailyPop
@@ -49,7 +50,7 @@ class DataModel{
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
       }
     }
-      guard let dataString = dailyResults.last?.dailyDate else{
+      guard let dataString = weatherResult.dailyResults.last?.dailyDate else{
         return
       }
       let localNotification = UILocalNotification()
@@ -95,7 +96,7 @@ class DataModel{
     archiver.encodeObject(dueString, forKey: "DueString")
     archiver.encodeBool(shouldRemind, forKey: "ShouldRemind")
     archiver.encodeObject(cities, forKey: "Cities")
-    archiver.encodeObject(dailyResults, forKey: "DailyResults")
+    archiver.encodeObject(weatherResult.dailyResults, forKey: "DailyResults")
     archiver.finishEncoding()
     data.writeToFile(dataFilePath(), atomically: true)
     scheduleNotification()
@@ -110,7 +111,7 @@ class DataModel{
         dueString = unarchiver.decodeObjectForKey("DueString") as! String
         shouldRemind = unarchiver.decodeBoolForKey("ShouldRemind")
         cities = unarchiver.decodeObjectForKey("Cities") as! [City]
-        dailyResults = unarchiver.decodeObjectForKey("DailyResults") as! [DailyResult]
+        weatherResult.dailyResults = unarchiver.decodeObjectForKey("DailyResults") as! [DailyResult]
         unarchiver.finishDecoding()
       }
     }

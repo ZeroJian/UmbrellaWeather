@@ -154,7 +154,6 @@ class SupportTableViewController: UITableViewController,SKPaymentTransactionObse
   }
   
   func showAlert(message: String){
-  
     let alert = UIAlertController(title: "加载错误", message: message, preferredStyle: UIAlertControllerStyle.Alert)
     let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.Cancel, handler: nil)
     alert.addAction(action)

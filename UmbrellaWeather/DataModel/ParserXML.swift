@@ -34,8 +34,23 @@ class ParserXML: NSObject,NSXMLParserDelegate{
     let str = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     if elementName == "city"{
       let city = City()
+//      print("xml 解析完成")
       city.cityCN = str
       cities.append(city)
     }
+  }
+  
+  func rangeOfLocation(placemark: String) -> String {
+    var cityName: String!
+    let p = placemark.lowercaseString
+    for (_ , value) in cities.enumerate(){
+      if p.rangeOfString(value.cityCN) != nil{
+        cityName =  value.cityCN
+        break
+      } else {
+        cityName = placemark
+      }
+    }
+    return cityName
   }
 }

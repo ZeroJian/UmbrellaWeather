@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  WeatherView.swift
 //  UmbrellaWeather
 //
 //  Created by ZeroJianMBP on 16/1/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainView: UIView {
+class WeatherView: UIView {
 
   
   @IBOutlet weak var weatherImage: UIImageView!
@@ -23,9 +23,19 @@ class MainView: UIView {
   var loadingImageView: UIImageView!
   var loading = false
   
+  var offsetY: CGFloat! {
+    didSet {
+      if offsetY >= 40 && offsetY <= 140 {
+        weatherImage.alpha = 1 - (0.02 * (offsetY - 30))
+      } else {
+        weatherImage.alpha = 1
+      }
+    }
+  }
+  
+  
   func updateAndAnimation(weatherResult: WeatherResult){
-    animation()
-    
+    animation() 
     schemaLabel.text = weatherResult.state
     weatherImage.imageWithCode(weatherResult.stateCode)
     tmpMaxLabel.text = weatherResult.dayTemMax
@@ -51,7 +61,7 @@ class MainView: UIView {
   func loadingFinish(){
       loadingImageView.layer.removeAllAnimations()
       loadingImageView.removeFromSuperview()
-    loading = false
+      loading = false
   }
   
   func animationBegin(){

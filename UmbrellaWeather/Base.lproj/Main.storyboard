@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HdM-UT-ua9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HdM-UT-ua9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -306,11 +306,11 @@
                         <viewControllerLayoutGuide type="top" id="AaG-Pl-Mjw"/>
                         <viewControllerLayoutGuide type="bottom" id="rMf-Sc-ju1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N0U-Ml-T0c">
+                    <view key="view" contentMode="scaleToFill" id="N0U-Ml-T0c" customClass="HomeView" customModule="UmbrellaWeather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-0A-Ee2" userLabel="HeadView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-0A-Ee2" userLabel="HeadView" customClass="HeadView" customModule="UmbrellaWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="dob-MT-TSu">
@@ -335,7 +335,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="locationButton:" destination="HdM-UT-ua9" eventType="touchUpInside" id="tdd-lj-UgO"/>
+                                            <action selector="location" destination="HdM-UT-ua9" eventType="touchUpInside" id="41B-bA-HS5"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-Ul-Zet">
@@ -398,8 +398,14 @@
                                     <constraint firstItem="JVc-HV-ccf" firstAttribute="centerY" secondItem="j1p-0A-Ee2" secondAttribute="centerY" id="lCU-fi-qLn"/>
                                     <constraint firstAttribute="trailing" secondItem="SnF-Lt-ct1" secondAttribute="trailing" constant="5" id="vYF-tU-Krk"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="cityButton" destination="JVc-HV-ccf" id="lxp-pG-C9y"/>
+                                    <outlet property="dateLabel" destination="C1I-Yj-Xp0" id="fsR-Gb-i9B"/>
+                                    <outlet property="dateView" destination="cOQ-Ul-Zet" id="OqV-9D-mvx"/>
+                                    <outlet property="detailButton" destination="SnF-Lt-ct1" id="oE1-PH-3jA"/>
+                                </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-Aw-8dk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-Aw-8dk" customClass="MainScrollView" customModule="UmbrellaWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-Tl-ynl" userLabel="WeekView">
@@ -516,7 +522,7 @@
                                             <outlet property="buttonHeightConstraion" destination="7Xe-p5-6ei" id="syw-8J-PTf"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-Sn-c4t" customClass="MainView" customModule="UmbrellaWeather" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-Sn-c4t" customClass="WeatherView" customModule="UmbrellaWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-7Y-G0Q">
@@ -664,7 +670,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="delegate" destination="HdM-UT-ua9" id="9QS-Wx-1kW"/>
+                                    <outlet property="WeatherView" destination="6AB-Sn-c4t" id="iqD-kN-sRU"/>
+                                    <outlet property="pullDownView" destination="jKh-dx-ymP" id="fiH-TU-9KZ"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -688,17 +695,14 @@
                                 <exclude reference="clG-Ru-JX7"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="headView" destination="j1p-0A-Ee2" id="Qa3-Ih-fMb"/>
+                            <outlet property="scorllView" destination="sYu-Aw-8dk" id="LRJ-bi-dq0"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="cityButton" destination="JVc-HV-ccf" id="W8r-og-bl2"/>
                         <outlet property="collectionView" destination="hcx-xM-yqT" id="URg-KA-ZUy"/>
-                        <outlet property="dateLabel" destination="C1I-Yj-Xp0" id="mEy-U3-LQ4"/>
-                        <outlet property="dateView" destination="cOQ-Ul-Zet" id="g6x-Gf-60h"/>
-                        <outlet property="detailButton" destination="SnF-Lt-ct1" id="qMs-Od-072"/>
-                        <outlet property="mainView" destination="6AB-Sn-c4t" id="IyI-uN-DYu"/>
-                        <outlet property="pullDownView" destination="jKh-dx-ymP" id="Eml-df-RPw"/>
-                        <outlet property="pullTopView" destination="ZcQ-Bt-R9v" id="buk-kJ-x93"/>
-                        <outlet property="scrollView" destination="sYu-Aw-8dk" id="VkQ-Qw-MEG"/>
+                        <outlet property="homeView" destination="N0U-Ml-T0c" id="0AM-rF-3t0"/>
                         <segue destination="mHO-cs-1vE" kind="presentation" identifier="TimePicker" id="sGB-bD-OEg"/>
                         <segue destination="iUw-Zf-B3k" kind="show" identifier="CityList" id="bQj-vV-JWb"/>
                     </connections>
